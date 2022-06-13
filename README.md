@@ -37,6 +37,9 @@ cmake -D NXA_TAGLIB_DIR=`realpath ../../taglib/build/taglib` -D NXA_QT_DIR=/usr/
 
 make # `Use make VERBOSE=1` to see the compile commands
 
+# Run the application
+open ./UI/Rekord\ Buddy.app
+
 ```
 
 ## Issues:
