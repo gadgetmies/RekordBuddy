@@ -19,7 +19,14 @@ ln -s /usr/lib/include/taglib /usr/lib/include/tag
 mkdir build
 cd build
 cmake -D NXA_TAGLIB_DIR=/usr/local/Cellar/taglib/1.12/lib -D NXA_QT_DIR=/usr/local/Cellar/qt@5/5.15.3 ../
+
+# This will fail, because getversions is not found
 make
+
+# Patch the rkb_build_defines.cmake file in build folder by replacing '../../' in the include with '../' # TODO: Can this be done before running make?
+
+make
+
 ```
 
 ## Issues:
