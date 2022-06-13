@@ -35,7 +35,7 @@ cmake -D NXA_TAGLIB_DIR=`realpath ../../taglib/build/taglib` -D NXA_QT_DIR=/usr/
 
 # Patch the rkb_build_defines.cmake file in build folder by replacing '../../' in the include with '../'
 
-make # `Use make VERBOSE=1` to see the compile commands
+make # Use `make VERBOSE=1` to see the compile commands
 
 # Run the application
 open ./UI/Rekord\ Buddy.app
