@@ -8,32 +8,37 @@ This initial code dump will most likely not build easily or at all. That's norma
 **NOTICE: This is a work in progress and here just for notes**
 
 ```
+git clone git@github.com:taglib/taglib.git
+cd taglib
+
+# Build taglib as framework and install it as per: https://github.com/taglib/taglib/blob/master/INSTALL.md#mac-os-x i.e.:
+# mkdir build; cd build
+# cmake .. -DCMAKE_BUILD_TYPE=Release \
+#  -DBUILD_TESTING=OFF \
+#  -DBUILD_FRAMEWORK=ON \
+#  -DCMAKE_OSX_DEPLOYMENT_TARGET=10.10 \
+#  -DCMAKE_OSX_ARCHITECTURES="arm64;x86_64"
+# make
+
+# To install:
+# sudo make install
+
+cd ..
 git clone git@github.com:gadgetmies/RekordBuddy.git
 
 brew install qt@5
-brew install taglib
-
-# TODO: is this really necessary to get the headers included with #include <tag/...>?
-ln -s /usr/lib/include/taglib /usr/lib/include/tag
+brew install coreutils
 
 mkdir build
 cd build
-cmake -D NXA_TAGLIB_DIR=/usr/local/Cellar/taglib/1.12/lib -D NXA_QT_DIR=/usr/local/Cellar/qt@5/5.15.3 ../
+cmake -D NXA_TAGLIB_DIR=`realpath ../../taglib/build/taglib` -D NXA_QT_DIR=/usr/local/Cellar/qt@5/5.15.3 ..
 
-# This will fail, because getversions is not found
-make
+# Patch the rkb_build_defines.cmake file in build folder by replacing '../../' in the include with '../'
 
-# Patch the rkb_build_defines.cmake file in build folder by replacing '../../' in the include with '../' # TODO: Can this be done before running make?
-
-make
+make # `Use make VERBOSE=1` to see the compile commands
 
 ```
 
 ## Issues:
 
-```
-RekordBuddy/build/rkb_build_defines.cmake:4 (include):
-  include could not find requested file:
-
-    getversions
-```
+* The app will build ok, but will not run on macOS versions later than 11.
