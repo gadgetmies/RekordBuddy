@@ -89,5 +89,13 @@ open ./UI/Rekord\ Buddy.app
 RekordBuddy/TrackFiles/Objects/Internal/MPEGTrackFileInternal.hpp:55:9: warning: variable 'id3_version' set but not used [-Wunused-but-set-variable]
     int id3_version;
         ^
+
+RekordBuddy/Collections/Common/Objects/Markers/MarkerValidation.cpp:566:13: error: variable 'gridMarkersHaveBeenRemoved' set but not used [-Werror,-Wunused-but-set-variable]
+    boolean gridMarkersHaveBeenRemoved = false;
+            ^
+
+RekordBuddy/Collections/Common/Objects/Markers/MarkerOffset.cpp:170:9: error: variable 'vbr_quality' set but not used [-Werror,-Wunused-but-set-variable]
+    int vbr_quality = -1;
+        ^
 ```
 
