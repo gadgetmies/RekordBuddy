@@ -332,7 +332,7 @@ def check_requirements(context):
     require('clang++')
 
     # Check versions of important things like clang and cmake
-    result = run_shell('clang --version | grep "\(clang-12\)"')
+    result = run_shell('clang --version | grep "\(clang-13\)"')
     if not result[0] or result[1] == '':
         die('XCode 12 required.')
     else:
