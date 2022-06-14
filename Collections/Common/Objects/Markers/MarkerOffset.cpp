@@ -167,7 +167,9 @@ static integer64 p_positionOffsetInMilliSecondsToToAddWhenImportingRekordboxMark
     auto skip = ((header_flags & 1) ? 4 : 0) + ((header_flags & 2) ? 4 : 0) + ((header_flags & 4) ? 100 : 0);
     f.seek(skip, File::SeekMode::FromCurrent);
 
+#if defined(NXA_DEBUG_MP3_OFFSET_CODE)
     int vbr_quality = -1;
+#endif
     if (is_vbr) {
         auto vbrInt = f.read(4);
         if (vbrInt.isEmpty() || vbrInt.size() != 4) {
@@ -176,8 +178,8 @@ static integer64 p_positionOffsetInMilliSecondsToToAddWhenImportingRekordboxMark
 #endif
             return 0;
         }
-        vbr_quality = p_readInteger(vbrInt.data());
 #if defined(NXA_DEBUG_MP3_OFFSET_CODE)
+        vbr_quality = p_readInteger(vbrInt.data());
         printf("   VBR quality: %d\n", vbr_quality);
 #endif
     }

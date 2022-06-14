@@ -97,7 +97,7 @@ class MutableCollection : public Common::MutableCollection, public Common::Colle
             auto mutatedThis = const_cast<MutableCollection*>(this);
 
             count index = 0;
-            count lastTrackID = 0;
+//            count lastTrackID = 0;
 
             for (auto&& xmlNode : mutatedThis->p_maybeAllTracksPlaylistNode->subNodesNamed("track")) {
                 auto maybeNewTrack = MutableTrack::maybeTrackWithNodeInCollection(xmlNode, mutatedThis, MutableTrack::p_isProtected);
@@ -116,7 +116,7 @@ class MutableCollection : public Common::MutableCollection, public Common::Colle
                         this->p_maximumTrackIDFound = trackID;
                     }
 
-                    lastTrackID = trackID;
+//                    lastTrackID = trackID;
 
                     this->p_pcdjTracksPerTrackID.setValueForKey(lastTrackAdded, trackID);
                     tracks.append(*maybeNewTrack);

@@ -563,14 +563,14 @@ Optional<Shared<Array<Common::MarkerOfSomeSort>>> MarkerValidation::maybeCorrect
         }
     }
 
-    boolean gridMarkersHaveBeenRemoved = false;
+//    boolean gridMarkersHaveBeenRemoved = false;
     if (onlyGridMarkersOnFirstDownBeat || onlyOneBeatsPerMinuteForAllGridMarkers) {
         auto result = this->p_maybeMarkersWithoutGridMarkersIfInvalid(maybeCorrectedMarkers.isValid() ? *maybeCorrectedMarkers->asRawPointer() : markers,
                                                                       onlyGridMarkersOnFirstDownBeat,
                                                                       onlyOneBeatsPerMinuteForAllGridMarkers,
                                                                       reasons);
         if (result.isValid()) {
-            gridMarkersHaveBeenRemoved = true;
+//            gridMarkersHaveBeenRemoved = true;
             maybeCorrectedMarkers = result;
         }
     }

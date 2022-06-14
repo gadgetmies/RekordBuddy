@@ -52,11 +52,12 @@ static int p_read_int(const char *buffer) {
 }
 
 static int p_read_id3(const char *buffer) {
-    int id3_version;
     int tag_size;
     if ((buffer[0] != 'I') || (buffer[1] != 'D') || (buffer[2] != '3')) return 0;
-    id3_version = buffer[3];
+
 #if DEBUG_ME
+    int id3_version;
+    id3_version = buffer[3];
     printf("   ID3 version 2.%d\n", id3_version);
 #endif
     tag_size = p_read_syncint(buffer + 6);
