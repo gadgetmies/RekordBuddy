@@ -84,3 +84,10 @@ open ./UI/Rekord\ Buddy.app
 ```
 
 ### Issues:
+* Unused variable breaks the build as -Werror is set. To get past this, build with `make VERBOSE=1`, copy the compiler command, remove `-Werror` argument, run the compiler command and continue the build by running `make`.
+```
+RekordBuddy/TrackFiles/Objects/Internal/MPEGTrackFileInternal.hpp:55:9: warning: variable 'id3_version' set but not used [-Wunused-but-set-variable]
+    int id3_version;
+        ^
+```
+
