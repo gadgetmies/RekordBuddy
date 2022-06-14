@@ -212,6 +212,7 @@ int main(int argc, char* argv[])
     auto osVersionString = Platform::osVersion();
     auto components = osVersionString.splitBySeparator('.');
 #if defined(NXA_PLATFORM_MACOS)
+/*
     if ((components.length() < 2) ||
         (components[0].integerValue() < 10) ||
         (components[0].integerValue() > 11) ||
@@ -219,7 +220,7 @@ int main(int argc, char* argv[])
         Platform::alertWithTextAndInformativeText("Rekord Buddy only supports macOS versions between 10.13 and 11.x."_String,
                                                   String::stringWithFormat("You seem to be running version %s.", osVersionString.asUTF8()));
         exit(0);
-    }
+    }*/
 #elif defined(NXA_PLATFORM_WINDOWS)
     if (!((components.length() >= 2) && (components[0].integerValue() >= 10))) {
         Platform::alertWithTextAndInformativeText("Rekord Buddy only supports Windows 10 and above."_String,
