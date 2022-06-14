@@ -75,11 +75,11 @@ git clone git@github.com:gadgetmies/RekordBuddy.git
 brew install qt@5
 brew install coreutils
 
-python bin/build.py --taglibpath `realpath ../../taglib/build/taglib` --qtpath /usr/local/Cellar/qt@5/5.15.3
+python bin/build.py -a --taglibpath `realpath ../../taglib/build/taglib` --qtpath /usr/local/Cellar/qt@5/5.15.3
 make # Use `make VERBOSE=1` to see the compile commands
 
 # Run the application
-open ./UI/Rekord\ Buddy.app
+open ./builds/cmake-buildscript-relwithdebinfo/UI/Rekord\ Buddy.app/
 
 ```
 
