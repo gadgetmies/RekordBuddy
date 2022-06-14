@@ -97,5 +97,9 @@ RekordBuddy/Collections/Common/Objects/Markers/MarkerValidation.cpp:566:13: erro
 RekordBuddy/Collections/Common/Objects/Markers/MarkerOffset.cpp:170:9: error: variable 'vbr_quality' set but not used [-Werror,-Wunused-but-set-variable]
     int vbr_quality = -1;
         ^
+
+RekordBuddy/Collections/PCDJ/Include/PCDJCollection/Collection.hpp:100:19: error: variable 'lastTrackID' set but not used [-Werror,-Wunused-but-set-variable]
+            count lastTrackID = 0;
+                  ^
 ```
 
