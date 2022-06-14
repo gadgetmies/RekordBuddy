@@ -44,10 +44,6 @@ open ./UI/Rekord\ Buddy.app
 
 ```
 
-### Issues:
-
-* The app will build ok, but will not run on macOS versions later than 11.
-
 ### Using bin/build.py
 
 You need to have XCode installed in order to build the application with the script.
@@ -79,27 +75,12 @@ python bin/build.py -a --taglibpath `realpath ../../taglib/build/taglib` --qtpat
 make # Use `make VERBOSE=1` to see the compile commands
 
 # Run the application
-open ./builds/cmake-buildscript-relwithdebinfo/UI/Rekord\ Buddy.app/
-
+cp -r ./builds/cmake-buildscript-relwithdebinfo/UI/Rekord\ Buddy.app  /Applications
+open /Applications/Rekord\ Buddy.app
 ```
 
-### Issues:
-* Unused variable breaks the build as -Werror is set. To get past this, build with `make VERBOSE=1`, copy the compiler command, remove `-Werror` argument, run the compiler command and continue the build by running `make`.
-```
-RekordBuddy/TrackFiles/Objects/Internal/MPEGTrackFileInternal.hpp:55:9: warning: variable 'id3_version' set but not used [-Wunused-but-set-variable]
-    int id3_version;
-        ^
+# TODO
 
-RekordBuddy/Collections/Common/Objects/Markers/MarkerValidation.cpp:566:13: error: variable 'gridMarkersHaveBeenRemoved' set but not used [-Werror,-Wunused-but-set-variable]
-    boolean gridMarkersHaveBeenRemoved = false;
-            ^
-
-RekordBuddy/Collections/Common/Objects/Markers/MarkerOffset.cpp:170:9: error: variable 'vbr_quality' set but not used [-Werror,-Wunused-but-set-variable]
-    int vbr_quality = -1;
-        ^
-
-RekordBuddy/Collections/PCDJ/Include/PCDJCollection/Collection.hpp:100:19: error: variable 'lastTrackID' set but not used [-Werror,-Wunused-but-set-variable]
-            count lastTrackID = 0;
-                  ^
-```
+* Make sure the app works on macOS versions >11. Currently the code that checks the OS version is commented out. If everything works, fix the check to include 12.
+* Fix the cases where the build fails because of unused variables. If the code is unnecessary, remove it, else fix the usages.
 
